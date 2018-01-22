@@ -18,7 +18,7 @@ def ema_update(latest_price):
     if ema == 0:
         ema = latest_price
     else:
-        ema_new = ema * (0.75) + 0.25 * latest_price
+        ema_new = ema * 0.75 + 0.25 * latest_price
         delta_ema = (ema_new - ema)
         ema = ema_new
         
@@ -41,7 +41,7 @@ with open('data.csv', newline='') as datafile:
         
         # initial buy, for buy and hold
         if price == 0:
-            buyandhold = 100 / (float(i[2]))
+            buyandhold = 100 / float(i[2])
         
         # updating prices and volumes
         price = float(i[2])
