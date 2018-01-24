@@ -12,6 +12,7 @@ momentum = 0
 price = 0
 vol = 0
 buyandholdbtc = 0
+fees = 0.0025       #poloniex fees, 0.25% taker fee
 
 def ema_update(latest_price):
     global ema, delta_ema
@@ -25,13 +26,13 @@ def ema_update(latest_price):
 def buy(cost, amount):
     #Would code API access in here to place buy order
     global portfolio
-    portfolio[1] = amount/cost
+    portfolio[1] = amount/cost * (1.0 - fees)
     portfolio[0] -= amount
     
 def sell(cost, amount):
     #Would code API access in her to place sell order
     global portfolio
-    portfolio[0] = amount * cost
+    portfolio[0] = amount * cost * (1.0 - fees)
     portfolio[1] -= amount
     
 with open('data.csv', newline = '') as datafile:
