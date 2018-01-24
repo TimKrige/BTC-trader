@@ -64,5 +64,5 @@ with open('data.csv', newline = '') as datafile:
 
 print('*********************************************************************************\nDone \n')
 print('Final Account : ', round((portfolio[0] + portfolio[1]*price),2), 'USD')
-print('Buy and hold : ',round((buyandhold * price),2),'')
+print('Buy and hold : ',round((buyandhold * price),2),'USD')
 print('Percentage Improvement :', round((((portfolio[0] + portfolio[1]*price)/(buyandhold * price) - 1) * 100),2),'%')
